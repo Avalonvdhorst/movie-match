@@ -86,5 +86,13 @@ user1 = User.create(
 )
 
 
+user2 = User.create(
+  first_name: "Puk",
+  last_name: "Horstje",
+  email: "puk@gmail.com",
+  password: "password"
+)
+
+
 
 puts "Finished!"

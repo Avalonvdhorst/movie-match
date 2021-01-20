@@ -1,0 +1,2 @@
+class GameRoomsController < ApplicationController
+end
