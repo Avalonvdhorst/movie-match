@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar-mm {
   justify-content: space-between;
-  background: white;
+  background: #404040;
+  padding: 5px 8px !important;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-mm .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-mm .navbar-brand img {
   width: 40px;
+}
+
+.logo-mm {
+  width: 60px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-link {
+  color: white;
+  font-size: 18px;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }

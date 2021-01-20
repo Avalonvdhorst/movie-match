@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.home-banner {
+  height: 38vh;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1px;
+  font-weight: 900;
+  padding-top: 10%;
+  color: white;
+  text-shadow: 1px 1px 3px #c97734;
+}
+
+.invitation-code {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+

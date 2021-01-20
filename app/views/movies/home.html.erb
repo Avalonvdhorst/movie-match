@@ -1,0 +1,23 @@
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1599002762948-19068b069803?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzZ8fG1vdmllfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);">
+  <h1 class="font-black">WELCOME</h1>
+  <h1 class="font-black">TO</h1>
+  <h1 class="font-black">MOVIE MATCH</h1>
+</div>
+<div class="container">
+  <h3 class="align-text-center mt-m mb-m font-medium">Enter an invitation code:</h3>
+  <div class="invitation-code">
+    <%= form_tag genres_path, method: :get do %>
+        <div>
+          <%= text_field_tag :inv_code,
+            params[:inv_code],
+            class: "input-field"
+          %>
+        </div>
+        <div><%= submit_tag "GO", class: "primary-button-home mt-s" %></div>
+        <h3 class="align-text-center mt-s mb-s font-medium">Or</h3>
+        <div class="secundary-button-home" >
+        <%= link_to "Create A Group", group_path %>
+        </div>
+    <% end %>
+  </div>
+</div>
