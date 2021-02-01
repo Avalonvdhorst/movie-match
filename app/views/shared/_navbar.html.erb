@@ -5,7 +5,7 @@
 
   <div class="navbar-right-content">
       <% if user_signed_in? %>
-        <p>Sign out</p>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "login-link" %>
       <% else %>
         <div class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "login-link" %>
