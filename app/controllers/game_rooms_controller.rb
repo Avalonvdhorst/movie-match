@@ -12,7 +12,6 @@ class GameRoomsController < ApplicationController
     @gameroom = GameRoom.new(gameroom_params)
     @gameroom.user_rooms.first.user = current_user
     @gameroom.user_rooms.first.owner = true
-    raise
     @gameroom.save
     redirect_to root_path
   end
