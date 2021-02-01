@@ -6,7 +6,7 @@
 <div class="container">
   <h3 class="align-text-center mt-m mb-m font-medium">Enter an invitation code:</h3>
   <div class="invitation-code">
-    <%= form_tag genres_path, method: :get do %>
+    <%= simple_form_for UserRoom.new do %>
         <div>
           <%= text_field_tag :inv_code,
             params[:inv_code],

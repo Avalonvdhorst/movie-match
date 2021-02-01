@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :movies
   get '/genres', to: 'movies#genres', as: :genres
   root to: 'movies#home'
-  resources :game_rooms, only: [:new, :create]
+  resources :game_rooms, only: [:new, :create, :show]
+  resources :user_rooms, only: [:create, :edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
