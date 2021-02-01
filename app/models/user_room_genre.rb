@@ -1,0 +1,2 @@
+class UserRoomGenre < ApplicationRecord
+end

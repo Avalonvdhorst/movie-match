@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_132049) do
+ActiveRecord::Schema.define(version: 2021_02_01_134050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 2021_02_01_132049) do
     t.string "roomcode"
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "matches", force: :cascade do |t|
     t.bigint "movie_id", null: false
     t.bigint "game_room_id", null: false
@@ -51,10 +57,18 @@ ActiveRecord::Schema.define(version: 2021_02_01_132049) do
     t.index ["movie_id"], name: "index_matches_on_movie_id"
   end
 
+  create_table "movie_genres", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "genre"
     t.float "rating"
     t.string "year"
     t.datetime "created_at", precision: 6, null: false
@@ -75,10 +89,18 @@ ActiveRecord::Schema.define(version: 2021_02_01_132049) do
     t.index ["user_id"], name: "index_swipes_on_user_id"
   end
 
+  create_table "user_room_genres", force: :cascade do |t|
+    t.bigint "user_room_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_user_room_genres_on_genre_id"
+    t.index ["user_room_id"], name: "index_user_room_genres_on_user_room_id"
+  end
+
   create_table "user_rooms", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "game_room_id", null: false
-    t.text "genres", default: [], array: true
     t.boolean "owner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
