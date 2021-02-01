@@ -1,2 +1,13 @@
 <h1>new gameroom</h1>
 <h3> <%= @roomcode %> </h3>
+<% @gameroom.user_rooms.build %>
+<%= simple_form_for @gameroom do |f| %>
+  <%= f.input :roomcode, input_html: { value: @roomcode }, as: :hidden %>
+  <%= f.simple_fields_for :user_rooms do |u| %>
+    <%= u.association :genres,
+                  as: :check_boxes,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
