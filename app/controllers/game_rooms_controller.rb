@@ -16,6 +16,14 @@ class GameRoomsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @gameroom = GameRoom.find(params[:id])
+    swipes = Swipe.where(user: current_user, game_room: @gameroom)
+    movies = Movie.where(genres: @gameroom.genres)
+                  .where.not(id: swipes.pluck(:movie_id))
+
+  end
+
   private
 
   def gameroom_params

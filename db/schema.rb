@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_134050) do
   end
 
   create_table "movie_genres", force: :cascade do |t|
-    t.bigint "movie_id"
-    t.bigint "genre_id"
+    t.bigint "movie_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 2021_02_01_134050) do
   end
 
   create_table "user_room_genres", force: :cascade do |t|
-    t.bigint "user_room_id"
-    t.bigint "genre_id"
+    t.bigint "user_room_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_user_room_genres_on_genre_id"
@@ -125,9 +125,13 @@ ActiveRecord::Schema.define(version: 2021_02_01_134050) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "matches", "game_rooms"
   add_foreign_key "matches", "movies"
+  add_foreign_key "movie_genres", "genres"
+  add_foreign_key "movie_genres", "movies"
   add_foreign_key "swipes", "game_rooms"
   add_foreign_key "swipes", "movies"
   add_foreign_key "swipes", "users"
+  add_foreign_key "user_room_genres", "genres"
+  add_foreign_key "user_room_genres", "user_rooms"
   add_foreign_key "user_rooms", "game_rooms"
   add_foreign_key "user_rooms", "users"
 end

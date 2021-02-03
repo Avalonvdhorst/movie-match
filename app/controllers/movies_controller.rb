@@ -3,10 +3,4 @@ class MoviesController < ApplicationController
 
   def home
   end
-
-  def genres
-  end
-
-  def group
-  end
 end

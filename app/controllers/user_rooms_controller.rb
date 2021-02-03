@@ -31,6 +31,6 @@ class UserRoomsController < ApplicationController
   private
 
   def user_room_params
-    params.require(:user_room).permit(genres: [])
+    params.require(:user_room).permit(genre_ids: [])
   end
 end

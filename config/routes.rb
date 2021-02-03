@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :movies
-  get '/genres', to: 'movies#genres', as: :genres
   root to: 'movies#home'
-  resources :game_rooms, only: [:new, :create, :show]
+  resources :game_rooms, only: [:new, :create, :show] do
+      resources :swipes, only: [:create]
+    end
   resources :user_rooms, only: [:create, :edit, :update]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
