@@ -19,9 +19,8 @@ class GameRoomsController < ApplicationController
   def show
     @gameroom = GameRoom.find(params[:id])
     swipes = Swipe.where(user: current_user, game_room: @gameroom)
-    movies = Movie.where(genres: @gameroom.genres)
-                  .where.not(id: swipes.pluck(:movie_id))
-
+    @movies = Movie.where(genres: @gameroom.genres)
+                   .where.not(id: swipes.pluck(:movie_id))
   end
 
   private
